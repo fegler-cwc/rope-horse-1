@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 1: Introduction to Equine Science - Breed Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        :root {
+            --primary-brown: #5d4037;
+            --accent-gold: #c5a059;
+            --bg-cream: #fdfbf7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-cream);
+            color: #333;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .breed-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .breed-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .calculator-box {
+            background: #fff;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+    </style>
+</head>
+<body class="p-0 m-0">
+
+    <!-- Header Section -->
+    <header class="bg-[#5d4037] text-white py-12 px-6 text-center shadow-lg">
+        <h1 class="text-4xl md:text-5xl mb-4">Introduction to Equine Science</h1>
+        <p class="text-xl font-light italic text-gray-200">Unit 1, Lesson 1: The Diversity of the Equine</p>
+    </header>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav border-b border-gray-200 py-4 px-6 shadow-sm">
+        <div class="max-w-6xl mx-auto flex flex-wrap gap-4 justify-center">
+            <button onclick="showTab('lesson-plan')" class="px-4 py-2 font-semibold text-primary-brown border-b-2 border-transparent hover:border-accent-gold transition">Lesson Plan</button>
+            <button onclick="showTab('breed-catalog')" class="px-4 py-2 font-semibold text-primary-brown border-b-2 border-transparent hover:border-accent-gold transition">15-Breed Catalog</button>
+            <button onclick="showTab('interactive-tools')" class="px-4 py-2 font-semibold text-primary-brown border-b-2 border-transparent hover:border-accent-gold transition">Student Tools</button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto p-6 lg:p-12">
+
+        <!-- Section: Lesson Plan -->
+        <section id="lesson-plan" class="tab-content active">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <h2 class="text-3xl mb-6 text-amber-900 border-b pb-2">Instructional Design Strategy</h2>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-3 flex items-center">
+                            <span class="bg-amber-100 p-2 rounded mr-2">🎯</span> Student Learning Objectives
+                        </h3>
+                        <ul class="list-disc ml-8 space-y-2 text-gray-700">
+                            <li>Categorize horses into four primary classifications: Light, Draft, Pony, and Warmblood.</li>
+                            <li><strong>Identify and differentiate 15 specific breeds</strong> by analyzing conformation, origins, and utility.</li>
+                            <li>Explain the biological principle of "Form Follows Function."</li>
+                            <li>Perform height-to-hand conversions with 100% accuracy.</li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold mb-3">Lesson Sequence</h3>
+                        <div class="space-y-4">
+                            <div class="p-4 bg-white rounded shadow-sm border-l-4 border-amber-600">
+                                <span class="font-bold text-amber-800">1. Gaining Attention:</span> "The Speed vs. Power" visual analysis hook.
+                            </div>
+                            <div class="p-4 bg-white rounded shadow-sm border-l-4 border-amber-600">
+                                <span class="font-bold text-amber-800">2. Stimulate Recall:</span> Brief review of equine anatomy (Withers, Scapula, Hindquarters).
+                            </div>
+                            <div class="p-4 bg-white rounded shadow-sm border-l-4 border-amber-600">
+                                <span class="font-bold text-amber-800">3. Present Content:</span> Interactive 15-Breed Gallery Walk.
+                            </div>
+                            <div class="p-4 bg-white rounded shadow-sm border-l-4 border-amber-600">
+                                <span class="font-bold text-amber-800">4. Elicit Performance:</span> "The Breed Matchmaker" activity and Math Lab.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-stone-100 p-6 rounded-lg shadow-inner h-fit">
+                    <h3 class="text-xl font-bold mb-4">Core Terminology</h3>
+                    <div class="space-y-3">
+                        <p><strong>Hand:</strong> 4 inches. Unit of measure.</p>
+                        <p><strong>Withers:</strong> Highest point of vertebrae.</p>
+                        <p><strong>Conformation:</strong> Skeletal structure.</p>
+                        <p><strong>Gait:</strong> Rhythmic leg movement.</p>
+                        <p><strong>Feathering:</strong> Long hair on lower legs.</p>
+                        <p><strong>Sclera:</strong> White portion of the eye.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: 15-Breed Catalog -->
+        <section id="breed-catalog" class="tab-content">
+            <h2 class="text-3xl mb-4 text-amber-900">The Global Equine Catalog</h2>
+            <p class="mb-8 text-gray-600 italic">Click on a breed to explore its characteristics.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="breed-grid">
+                <!-- Breeds will be injected here by JS -->
+            </div>
+        </section>
+
+        <!-- Section: Interactive Tools -->
+        <section id="interactive-tools" class="tab-content">
+            <h2 class="text-3xl mb-8 text-amber-900">Student Math Lab</h2>
+            
+            <div class="calculator-box p-8 rounded shadow-lg max-w-xl">
+                <h3 class="text-2xl mb-4">Height to Hands Converter</h3>
+                <p class="mb-6 text-gray-600 italic">In Equine Science, we measure horses in "Hands". Use this tool to practice the conversion formula.</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block font-bold mb-1">Enter Height in Inches:</label>
+                        <input type="number" id="inchInput" class="w-full p-3 border rounded focus:ring-2 focus:ring-amber-500" placeholder="e.g. 62">
+                    </div>
+                    <button onclick="calculateHands()" class="w-full bg-amber-800 text-white py-3 rounded font-bold hover:bg-amber-900 transition">Convert to Hands</button>
+                    
+                    <div id="calcResult" class="mt-6 p-4 bg-amber-50 rounded text-center hidden">
+                        <p class="text-lg">Result: <span id="handResult" class="font-bold text-2xl text-amber-900"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-white p-8 rounded-lg border">
+                <h3 class="text-2xl mb-4">Suggested Activities</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="p-4 border-r">
+                        <h4 class="font-bold text-amber-800 mb-2">Activity 1: The Breed Matchmaker</h4>
+                        <p class="text-sm text-gray-700">Assign students a scenario (e.g., "A rancher in high altitude needs a horse for cattle"). Students must select 3 of the 15 breeds and justify their picks based on physical traits.</p>
+                    </div>
+                    <div class="p-4">
+                        <h4 class="font-bold text-amber-800 mb-2">Activity 2: Flashcard Relay</h4>
+                        <p class="text-sm text-gray-700">Print the breed cards from the catalog. Have students race to categorize them into "Hot-blooded" vs "Cold-blooded" groups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-200 py-8 text-center mt-12">
+        <p class="text-gray-600">Equine Science Curriculum Development &copy; 2024</p>
+    </footer>
+
+    <script>
+        const breeds = [
+            { name: "Arabian", group: "Light", trait: "Dished Profile", use: "Endurance", origin: "Middle East" },
+            { name: "Thoroughbred", group: "Light", trait: "Tall/Lean", use: "Flat Racing", origin: "England" },
+            { name: "American Quarter Horse", group: "Light", trait: "Muscular Hindquarters", use: "Sprinting/Cattle", origin: "USA" },
+            { name: "Morgan", group: "Light", trait: "Upright Neck", use: "Versatile/Driving", origin: "USA" },
+            { name: "Standardbred", group: "Light", trait: "Sturdy Build", use: "Harness Racing", origin: "USA" },
+            { name: "Clydesdale", group: "Draft", trait: "Heavy Feathering", use: "Heavy Pulling", origin: "Scotland" },
+            { name: "Shire", group: "Draft", trait: "Immense Height", use: "Heavy Hauling", origin: "England" },
+            { name: "Percheron", group: "Draft", trait: "Grey/Black Coat", use: "War/Draft Work", origin: "France" },
+            { name: "Belgian", group: "Draft", trait: "Chestnut/Flaxen", use: "Farm Labor", origin: "Belgium" },
+            { name: "Appaloosa", group: "Color", trait: "Spotted Coat", use: "Stock Work", origin: "USA" },
+            { name: "American Paint Horse", group: "Color", trait: "Large White Patches", use: "Show/Pleasure", origin: "USA" },
+            { name: "Palomino", group: "Color", trait: "Golden Coat", use: "Show/Parades", origin: "N/A (Color Breed)" },
+            { name: "Tennessee Walking Horse", group: "Gaited", trait: "Running Walk", use: "Trail Riding", origin: "USA" },
+            { name: "American Saddlebred", group: "Gaited", trait: "High Action", use: "Show Riding", origin: "USA" },
+            { name: "Shetland Pony", group: "Pony", trait: "Very Small/Strong", use: "Coal Mines/Children", origin: "Shetland Islands" }
+        ];
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        function populateBreeds() {
+            const grid = document.getElementById('breed-grid');
+            breeds.forEach(breed => {
+                const card = document.createElement('div');
+                card.className = "breed-card bg-white p-6 rounded-lg border-b-4 border-amber-700 shadow-sm";
+                card.innerHTML = `
+                    <span class="text-xs uppercase tracking-widest text-amber-600 font-bold">${breed.group}</span>
+                    <h3 class="text-xl font-bold mt-1 mb-3">${breed.name}</h3>
+                    <div class="space-y-2 text-sm">
+                        <p><strong>Trait:</strong> ${breed.trait}</p>
+                        <p><strong>Primary Use:</strong> ${breed.use}</p>
+                        <p><strong>Origin:</strong> ${breed.origin}</p>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function calculateHands() {
+            const inches = document.getElementById('inchInput').value;
+            const resultDiv = document.getElementById('calcResult');
+            const resultSpan = document.getElementById('handResult');
+            
+            if (inches && inches > 0) {
+                const hands = Math.floor(inches / 4);
+                const remainder = inches % 4;
+                resultSpan.innerText = `${hands}.${remainder} hh`;
+                resultDiv.classList.remove('hidden');
+            } else {
+                alert("Please enter a valid number of inches.");
+            }
+        }
+
+        window.onload = populateBreeds;
+    </script>
+</body>
+</html>
