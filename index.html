@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aften Fegler | CWC Equine Instructor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --cwc-rust: #a04d1d; 
+            --cwc-blue: #003366; 
+            --light-bg: #f8f9fa;
+            --dark-text: #2d2d2d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-card {
+            background: white;
+            max-width: 450px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .header-banner {
+            background: var(--cwc-blue);
+            height: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-img-container {
+            margin-top: -65px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 6px solid white;
+            object-fit: cover;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .content {
+            padding: 30px 40px;
+        }
+
+        h1 {
+            color: var(--cwc-blue);
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .job-title {
+            color: var(--cwc-rust);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1.2px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .contact-list {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #fdfdfd;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--dark-text);
+            transition: all 0.2s ease;
+        }
+
+        .contact-link:hover {
+            border-color: var(--cwc-rust);
+            background: #fffafa;
+            transform: scale(1.02);
+        }
+
+        .contact-link i {
+            color: var(--cwc-rust);
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+
+        .action-button {
+            background: var(--cwc-blue);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        .action-button:hover {
+            background: #002244;
+        }
+
+        #status-toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="header-banner">
+            </div>
+        
+        <div class="profile-img-container">
+            <img src="https://www.cwc.edu/media/cwc-website/content-assets/images/faculty-staff-profiles/Aften-Fegler.jpg" 
+                 alt="Aften Fegler" 
+                 class="profile-img">
+        </div>
+
+        <div class="content">
+            <h1>Aften Fegler</h1>
+            <p class="job-title">Equine Instructor</p>
+            
+            <p class="description">
+                Passionate about cultivating the next generation of horsemen and women. 
+                Providing expert instruction in equine science and industry standards at 
+                Central Wyoming College.
+            </p>
+
+            <div class="contact-list">
+                <a href="mailto:afegler@cwc.edu" class="contact-link">
+                    <i class="fas fa-envelope"></i>
+                    <span>afegler@cwc.edu</span>
+                </a>
+                <a href="tel:3078552302" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>(307) 855-2302</span>
+                </a>
+            </div>
+
+            <button class="action-button" onclick="copyEmail()">Copy Email Address</button>
+        </div>
+    </div>
+
+    <div id="status-toast">Email copied to clipboard!</div>
+
+    <script>
+        function copyEmail() {
+            const email = "afegler@cwc.edu";
+            navigator.clipboard.writeText(email).then(() => {
+                const toast = document.getElementById('status-toast');
+                toast.style.display = 'block';
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2500);
+            });
+        }
+    </script>
+
+</body>
+</html>
